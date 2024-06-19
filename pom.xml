@@ -10,11 +10,11 @@
   </parent>
 
   <groupId>io.jenkins.plugins</groupId>
-  <artifactId>branch-api-baseline</artifactId>
+  <artifactId>baseline-scm-trait</artifactId>
   <version>${revision}${changelist}</version>
   <packaging>hpi</packaging>
 
-  <name>TODO Plugin</name>
+  <name>Baseline SCM Trait Plugin</name>
   <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
   <licenses>
     <license>
@@ -29,10 +29,10 @@
     <url>https://github.com/${gitHubRepo}</url>
   </scm>
   <properties>
-    <revision>1.0</revision>
+    <revision>1.3</revision>
     <changelist>-SNAPSHOT</changelist>
     <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
-    <jenkins.version>2.414.3</jenkins.version>
+    <jenkins.version>2.452.1</jenkins.version>
     <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
     <spotless.check.skip>false</spotless.check.skip>
   </properties>
@@ -61,4 +61,26 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
+
+  <dependencies>
+    <dependency>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>scm-api</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>git-client</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>git</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jenkins-ci.plugins.workflow</groupId>
+      <artifactId>workflow-aggregator</artifactId>
+      <version>596.v8c21c963d92d</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 </project>

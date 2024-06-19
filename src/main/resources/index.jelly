@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    TODO
+    Adds `GIT_BASELINE` environment variable with value of `git describe --tags` command
 </div>
