@@ -30,12 +30,14 @@ public class GitBaselineTrait extends GitSCMExtensionTrait<GitBaselineExtension>
      */
     @Override
     protected void decorateContext(SCMSourceContext<?, ?> context) {
-        GitSCMSourceContext ctx = ((GitSCMSourceContext) context);
-        if(ctx.wantBranches()) {
-            ctx.withRefSpec("+refs/heads/*:refs/remotes/origin/*");
-        }
-        if(!ctx.wantTags()) {
-            ctx.withRefSpec("+refs/tags/*:refs/tags/*");
+        if (context instanceof GitSCMSourceContext) {
+            GitSCMSourceContext ctx = (GitSCMSourceContext) context;
+            if(ctx.wantBranches()) {
+                ctx.withRefSpec("+refs/heads/*:refs/remotes/origin/*");
+            }
+            if(!ctx.wantTags()) {
+                ctx.withRefSpec("+refs/tags/*:refs/tags/*");
+            }
         }
         super.decorateContext(context);
 
